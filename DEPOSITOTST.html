@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEPOSITO</title>
+</head>
+<body>
+    DEPOSITO
+
+    <div id="contador"></div>
+
+    <script>
+        // Definir o tempo inicial em segundos
+        var tempoRestante = 60; // 60 segundos
+
+        // Função para atualizar o contador regressivo
+        function atualizarContador() {
+            var minutos = Math.floor(tempoRestante / 60);
+            var segundos = tempoRestante % 60;
+
+            // Formatar os minutos e segundos com dois dígitos
+            minutos = minutos < 10 ? '0' + minutos : minutos;
+            segundos = segundos < 10 ? '0' + segundos : segundos;
+
+            // Atualizar a exibição do contador na página
+            document.getElementById('contador').innerHTML = minutos + ':' + segundos;
+
+            // Verificar se o tempo chegou a zero
+            if (tempoRestante === 0) {
+                clearInterval(intervalo); // Parar o intervalo
+                alert('O tempo acabou!'); // Exibir uma mensagem quando o tempo acabar
+            } else {
+                tempoRestante--; // Decrementar o tempo restante
+            }
+        }
+
+        // Chamar a função de atualização do contador a cada segundo (1000 milissegundos)
+        var intervalo = setInterval(atualizarContador, 1000);
+    </script>
+
+
+
+
+
+</body>
+</html>
